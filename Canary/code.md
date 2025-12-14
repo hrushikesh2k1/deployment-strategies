@@ -71,6 +71,8 @@ spec:
 ```
 kubectl apply -f deployment.yaml
 ```
+<img width="785" height="375" alt="canary-1" src="https://github.com/user-attachments/assets/1d259797-6217-4910-bcc6-3cc7b25240e2" />
+
 
 ## Creating the deployment and service for version-2 (canary.yaml)
 ```
@@ -130,6 +132,8 @@ spec:
   selector:
     app: version-2
 ```
+<img width="807" height="464" alt="canary-2" src="https://github.com/user-attachments/assets/5eebcab5-42f3-4620-9f65-f33e66ea3ffa" />
+
 
 ## Creating the ingress resource for version-1 (ingress-v1.yaml)
 ```
@@ -180,6 +184,11 @@ spec:
             port:
               number: 80
 ```
+
+## Ensure ingress controller is running and identified ingress resources.
+<img width="993" height="489" alt="canary-3" src="https://github.com/user-attachments/assets/5b283b67-5f53-4a78-b30f-510f9faa1268" />
+
+
 The nginx.ingress.kubernetes.io/canary: "true" annotation is required and defines this as a canary annotation.
 
 The nginx.ingress.kubernetes.io/canary-weight: "10" annotation dictates the weight of the routing, 
