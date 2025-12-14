@@ -63,8 +63,6 @@ spec:
   selector:
     app: version-1
 ```
-<img width="813" height="539" alt="blue-1" src="https://github.com/user-attachments/assets/ad50e8d3-d7f9-4067-80fa-6853080ac76f" />
-
 
 ## Deploying the deployment and service
 ```
@@ -128,6 +126,11 @@ spec:
     name: http
   selector:
     app: version-2
+```
+
+## deploy the deployment and service with version-2 with 4 replicas (canary.yaml)
+```
+kubectl apply -f canary.yaml
 ```
 <img width="813" height="539" alt="blue-1" src="https://github.com/user-attachments/assets/4379c1eb-72d7-4043-8bb2-de5a50903f49" />
 
