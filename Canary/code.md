@@ -214,6 +214,9 @@ kubectl edit ing version-2
 ## ssh into minikube again and execute the above mentioned curl command that sends 10 requests
 <img width="780" height="271" alt="canary-5" src="https://github.com/user-attachments/assets/eaeadece-4b4c-4600-816b-80c5772d78c6" />
 
+Now, you can see 7 version-1 and 3 version-2 which means, 70% requests are going to version-1 and 30% requests are going to version-2.
+if you are confident with version-2, you can change the canary weight to 100, which sends the total traffic to version-2.
+
 
 The nginx.ingress.kubernetes.io/canary: "true" annotation is required and defines this as a canary annotation.
 
