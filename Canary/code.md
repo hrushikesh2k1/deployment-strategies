@@ -189,6 +189,32 @@ spec:
 <img width="993" height="489" alt="canary-3" src="https://github.com/user-attachments/assets/5b283b67-5f53-4a78-b30f-510f9faa1268" />
 
 
+## Get the minikube ip
+```
+minikube ip
+```
+
+## ssh into minikube cluster
+```
+minikube ssh
+```
+
+## Execute the below command
+Here we are sending 10 requests using curl, only 1 request is sent to verion-2 as we set 10% weight to version-2 and remaining 9 requests goes to version-1
+```
+for i in $(seq 1 10); do curl -s --resolve echo.prod.mydomain.com:80:$INGRESS_CONTROLLER_IP echo.prod.mydomain.com  | grep "Hostname"; done
+```
+<img width="783" height="306" alt="canary-4" src="https://github.com/user-attachments/assets/d4cee6d4-d817-4045-b683-893684ee9237" />
+
+## Edit the version-2 ingress and change the canary weight to 30
+```
+kubectl edit ing version-2
+```
+
+## ssh into minikube again and execute the above mentioned curl command that sends 10 requests
+<img width="780" height="271" alt="canary-5" src="https://github.com/user-attachments/assets/eaeadece-4b4c-4600-816b-80c5772d78c6" />
+
+
 The nginx.ingress.kubernetes.io/canary: "true" annotation is required and defines this as a canary annotation.
 
 The nginx.ingress.kubernetes.io/canary-weight: "10" annotation dictates the weight of the routing, 
